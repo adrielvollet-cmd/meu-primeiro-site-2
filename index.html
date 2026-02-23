@@ -1,11 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Vôlei Pro | Paixão em Quadra</title>
+    <style>
+        /* Reset e Configurações Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header span {
+            color: #ff8c00;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff8c00;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1592656094267-764a45160876?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #ff8c00;
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e67e00;
+        }
+
+        /* Seções de Conteúdo */
+        .container {
+            padding: 50px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: #003366;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            width: 50%;
+            height: 3px;
+            background: #ff8c00;
+            position: absolute;
+            bottom: -10px;
+            left: 25%;
+        }
+
+        /* Grid de Posições */
+        .grid-posicoes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            border-bottom: 4px solid #003366;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #ff8c00;
+            margin-bottom: 10px;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 15px;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    iytfui
+
+    <header>
+        <h1>VÔLEI<span>PRO</span></h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#posicoes">Posições</a></li>
+                <li><a href="#regras">Regras</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <h2>O Jogo Só Acaba no Último Ponto</h2>
+        <p>Acompanhe notícias, dicas técnicas e tudo sobre o mundo do voleibol.</p>
+        <a href="#posicoes" class="btn">Explorar Conteúdo</a>
+    </section>
+
+    <div class="container" id="posicoes">
+        <div class="section-title">
+            <h2>Posições em Quadra</h2>
+        </div>
+
+        <div class="grid-posicoes">
+            <div class="card">
+                <h3>Levantador</h3>
+                <p>O cérebro do time. Responsável por armar as jogadas e decidir quem irá atacar.</p>
+            </div>
+            <div class="card">
+                <h3>Oposto</h3>
+                <p>O maior pontuador. Especialista em ataques potentes, geralmente posicionado na diagonal do levantador.</p>
+            </div>
+            <div class="card">
+                <h3>Ponteiro</h3>
+                <p>Equilibra o time. Atua tanto no passe (recepção) quanto no ataque pelas extremidades.</p>
+            </div>
+            <div class="card">
+                <h3>Central</h3>
+                <p>O gigante da rede. Especialista em bloqueios e ataques rápidos pelo meio da quadra.</p>
+            </div>
+            <div class="card">
+                <h3>Líbero</h3>
+                <p>O mestre da defesa. Usa uniforme diferente e é focado exclusivamente em recepção e defesa.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="container" id="regras" style="background-color: #e9ecef;">
+        <div class="section-title">
+            <h2>Regras Básicas</h2>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <ul>
+                <li><strong>Toques:</strong> Cada equipe pode dar no máximo 3 toques antes de passar a bola.</li>
+                <li><strong>Sets:</strong> Uma partida oficial é disputada em melhor de 5 sets.</li>
+                <li><strong>Pontuação:</strong> Os 4 primeiros sets vão até 25 pontos. O 5º set (Tie-break) vai até 15.</li>
+                <li><strong>Rodízio:</strong> Os jogadores devem girar em sentido horário toda vez que recuperam o saque.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Vôlei Pro - Todos os direitos reservados.</p>
+    </footer>
+
 </body>
 </html>
