@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vôlei Pro | Paixão em Quadra</title>
+    <title>VolleyPro | Calçados de Alta Performance</title>
     <style>
-        /* Reset e Configurações Gerais */
+        /* Reset e Fontes */
         * {
             margin: 0;
             padding: 0;
@@ -13,15 +13,22 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        :root {
+            --primary: #003366;
+            --accent: #ff6600;
+            --light: #f4f4f4;
+            --dark: #1a1a1a;
+        }
+
         body {
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
         }
 
-        /* Cabeçalho */
-        header {
-            background-color: #003366;
+        /* Navegação */
+        nav {
+            background: var(--primary);
             color: white;
             padding: 1rem 5%;
             display: flex;
@@ -30,43 +37,43 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
-        header h1 {
+        .logo {
             font-size: 1.5rem;
+            font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        header span {
-            color: #ff8c00;
+        .logo span {
+            color: var(--accent);
         }
 
-        nav ul {
-            display: flex;
+        .nav-links {
             list-style: none;
+            display: flex;
         }
 
-        nav ul li {
+        .nav-links li {
             margin-left: 20px;
         }
 
-        nav ul li a {
+        .nav-links a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: 0.3s;
         }
 
-        nav ul li a:hover {
-            color: #ff8c00;
+        .nav-links a:hover {
+            color: var(--accent);
         }
 
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1592656094267-764a45160876?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+                        url('https://images.unsplash.com/photo-1592656670408-3c146452d398?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             height: 60vh;
@@ -74,38 +81,41 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: white;
             text-align: center;
+            color: white;
             padding: 0 20px;
         }
 
-        .hero h2 {
+        .hero h1 {
             font-size: 3rem;
-            margin-bottom: 10px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
         }
 
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 20px;
+            margin-bottom: 2rem;
         }
 
         .btn {
-            background-color: #ff8c00;
+            background: var(--accent);
             color: white;
-            padding: 10px 25px;
+            padding: 12px 30px;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: transform 0.2s;
         }
 
         .btn:hover {
-            background-color: #e67e00;
+            transform: scale(1.05);
         }
 
-        /* Seções de Conteúdo */
+        /* Produtos */
         .container {
-            padding: 50px 10%;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
         }
 
         .section-title {
@@ -113,137 +123,128 @@
             margin-bottom: 40px;
         }
 
-        .section-title h2 {
-            font-size: 2rem;
-            color: #003366;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            width: 50%;
-            height: 3px;
-            background: #ff8c00;
-            position: absolute;
-            bottom: -10px;
-            left: 25%;
-        }
-
-        /* Grid de Posições */
-        .grid-posicoes {
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
-        .card {
+        .product-card {
             background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 250px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            /* Simulação de imagem se não houver link real */
+            font-style: italic;
+        }
+
+        .product-info {
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-            border-bottom: 4px solid #003366;
-            transition: transform 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            color: #ff8c00;
+        .product-info h3 {
             margin-bottom: 10px;
+        }
+
+        .price {
+            color: var(--primary);
+            font-size: 1.25rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 15px;
         }
 
         /* Rodapé */
         footer {
-            background-color: #222;
+            background: var(--dark);
             color: white;
+            padding: 40px 5%;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
 
         /* Responsividade */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-            }
-            nav ul {
-                margin-top: 15px;
-            }
-            .hero h2 {
-                font-size: 2rem;
-            }
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>VÔLEI<span>PRO</span></h1>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#posicoes">Posições</a></li>
-                <li><a href="#regras">Regras</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+    <nav>
+        <div class="logo">VOLLEY<span>PRO</span></div>
+        <ul class="nav-links">
+            <li><a href="#">Início</a></li>
+            <li><a href="#">Masculino</a></li>
+            <li><a href="#">Feminino</a></li>
+            <li><a href="#">Tecnologias</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Domine a Quadra</h1>
+        <p>Amortecimento máximo e estabilidade lateral para seus saltos mais altos.</p>
+        <a href="#produtos" class="btn">VER COLEÇÃO</a>
     </header>
 
-    <section class="hero" id="inicio">
-        <h2>O Jogo Só Acaba no Último Ponto</h2>
-        <p>Acompanhe notícias, dicas técnicas e tudo sobre o mundo do voleibol.</p>
-        <a href="#posicoes" class="btn">Explorar Conteúdo</a>
-    </section>
-
-    <div class="container" id="posicoes">
+    <main class="container" id="produtos">
         <div class="section-title">
-            <h2>Posições em Quadra</h2>
+            <h2>Destaques da Temporada</h2>
+            <p>Os modelos favoritos dos atletas profissionais</p>
         </div>
 
-        <div class="grid-posicoes">
-            <div class="card">
-                <h3>Levantador</h3>
-                <p>O cérebro do time. Responsável por armar as jogadas e decidir quem irá atacar.</p>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img">IMAGEM TÊNIS ATTACK</div>
+                <div class="product-info">
+                    <h3>Sky Jump Elite</h3>
+                    <p>Ideal para ponteiros e opostos. Gel de alta absorção.</p>
+                    <span class="price">R$ 599,90</span>
+                    <a href="#" class="btn" style="display: block; text-align: center;">Comprar</a>
+                </div>
             </div>
-            <div class="card">
-                <h3>Oposto</h3>
-                <p>O maior pontuador. Especialista em ataques potentes, geralmente posicionado na diagonal do levantador.</p>
-            </div>
-            <div class="card">
-                <h3>Ponteiro</h3>
-                <p>Equilibra o time. Atua tanto no passe (recepção) quanto no ataque pelas extremidades.</p>
-            </div>
-            <div class="card">
-                <h3>Central</h3>
-                <p>O gigante da rede. Especialista em bloqueios e ataques rápidos pelo meio da quadra.</p>
-            </div>
-            <div class="card">
-                <h3>Líbero</h3>
-                <p>O mestre da defesa. Usa uniforme diferente e é focado exclusivamente em recepção e defesa.</p>
-            </div>
-        </div>
-    </div>
 
-    <section class="container" id="regras" style="background-color: #e9ecef;">
-        <div class="section-title">
-            <h2>Regras Básicas</h2>
+            <div class="product-card">
+                <div class="product-img">IMAGEM TÊNIS STABILITY</div>
+                <div class="product-info">
+                    <h3>Libero Flow Z</h3>
+                    <p>Foco em tração e agilidade para movimentos rápidos.</p>
+                    <span class="price">R$ 489,00</span>
+                    <a href="#" class="btn" style="display: block; text-align: center;">Comprar</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img">IMAGEM TÊNIS POWER</div>
+                <div class="product-info">
+                    <h3>Block Master 3000</h3>
+                    <p>Máxima proteção de tornozelo para centrais.</p>
+                    <span class="price">R$ 650,00</span>
+                    <a href="#" class="btn" style="display: block; text-align: center;">Comprar</a>
+                </div>
+            </div>
         </div>
-        <div style="max-width: 800px; margin: 0 auto;">
-            <ul>
-                <li><strong>Toques:</strong> Cada equipe pode dar no máximo 3 toques antes de passar a bola.</li>
-                <li><strong>Sets:</strong> Uma partida oficial é disputada em melhor de 5 sets.</li>
-                <li><strong>Pontuação:</strong> Os 4 primeiros sets vão até 25 pontos. O 5º set (Tie-break) vai até 15.</li>
-                <li><strong>Rodízio:</strong> Os jogadores devem girar em sentido horário toda vez que recuperam o saque.</li>
-            </ul>
-        </div>
-    </section>
+    </main>
 
     <footer>
-        <p>&copy; 2026 Vôlei Pro - Todos os direitos reservados.</p>
+        <p>&copy; 2024 VolleyPro Store. Todos os direitos reservados.</p>
+        <p>A melhor tecnologia para o seu jogo.</p>
     </footer>
 
 </body>
